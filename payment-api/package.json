@@ -1,0 +1,13 @@
+{
+    "name": "payment-api",
+    "version": "1.0.0",
+    "description": "API de pagamento (mock) que a API de e-commerce consome",
+    "main": "src/app.js",
+    "scripts": {
+      "start": "node src/app.js"
+    },
+    "dependencies": {
+      "express": "^4.17.1"
+    }
+  }
+  
