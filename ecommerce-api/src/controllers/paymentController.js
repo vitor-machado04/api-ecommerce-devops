@@ -4,7 +4,7 @@ exports.processPayment = async (req, res) => {
   const { paymentMethod, amount, currency } = req.body;
 
   try {
-    const paymentResponse = await axios.post('http://payment-api:4000/api/payment/process', {
+    const paymentResponse = await axios.post('http://localhost:4000/api/payment/process', {
       paymentMethod,
       amount,
       currency
