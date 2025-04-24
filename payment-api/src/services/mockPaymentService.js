@@ -4,7 +4,7 @@ exports.processPayment = async (paymentData) => {
       setTimeout(() => {
         resolve({
           status: 'success',
-          transactionId: '151519165158',
+          transactionId: Math.floor(Math.random() * 1000000).toString(),
           amount: paymentData.amount,
           currency: paymentData.currency
         });

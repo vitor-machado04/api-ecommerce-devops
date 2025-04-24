@@ -10,13 +10,19 @@ exports.processPayment = async (req, res) => {
       currency
     });
 
+    if (paymentResponse.data.hasError) {
+      return res.status(400).json({ message: paymentResponse.data.message });
+    }
+
     res.status(200).json({
-      status: 'Payment processed successfully',
+      status: paymentResponse.data.status,
       transactionId: paymentResponse.data.transactionId,
       amount: paymentResponse.data.amount,
       currency: paymentResponse.data.currency
     });
-  } catch (error) {
-    res.status(500).send('Payment processing failed');
+  } 
+  catch (error) {
+    console.error('Erro ao processar pagamento: ', error);
+    res.status(404).send({success: false, message: 'Erro ao processar pagamento: Moeda não disponónivel ou não suportada'});
   }
 };
